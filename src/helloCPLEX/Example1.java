@@ -17,6 +17,7 @@ public class Example1 {
             //TODO
             /*
             * What does I L O stand for?
+            * I L(Linear) O(Optimization) ??
             *
             * */
 
@@ -41,6 +42,16 @@ public class Example1 {
             * This helps us create our objective function
             * */
             IloLinearNumExpr objective = cplex.linearNumExpr();
+
+
+
+            /*
+            *Under the Interface IloLinearIntExpr
+            *void addTerm(int coef, IloIntVar var)
+            *
+            *Adds the new term <<  coef * var  >> to a scalar product.
+            *
+            * */
             objective.addTerm(1, x);
 
 
