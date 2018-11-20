@@ -11,6 +11,8 @@ public class Example2 {
     }
 
     public static void model() {
+
+        // Main Variables---------------------------------
         int n = 4; // number of cargoes
         int m = 3; // number of compartments
         double[] p = {310, 380, 350, 285}; // profit of each cargo
@@ -18,20 +20,29 @@ public class Example2 {
         double[] a = {18, 15, 23, 12}; // weight of each cargo
         double[] c = {10, 16, 8}; // weight capacity of each compartment
         double[] V = {6800, 8700, 5300}; // volume capacity of each compartment
+        //------------------------------------------
+
 
         try {
-            // Define the model
+            // Define the model, cplex object
             IloCplex cplex = new IloCplex();
 
-            // Define the variables
+
+
+            //VARIABLES------------------------------------------------------------
+            // IloNumVarArray
             IloNumVar[][] x = new IloNumVar[n][];
             for(int i = 0; i < n; i++) {
+                //x[i]s are num var arrays in the range of 0 to max. Length : m (= # of compartments)
                 x[i] = cplex.numVarArray(m, 0, Double.MAX_VALUE);
             }
 
+            // y is a IloNumVar in the range of 0 to max
             IloNumVar y = cplex.numVar(0, Double.MAX_VALUE);
+            //----------------------------------------------------------------
 
-            // Define expressions
+
+            // EXPRESSIONS---------------------------------------------
             // How much weight is used in each compartment
             IloLinearNumExpr[] usedWeightCapacity = new IloLinearNumExpr[m];
             // How much volume is used in each compartment
@@ -44,8 +55,11 @@ public class Example2 {
                     usedVolumeCapacity[j].addTerm(v[i], x[i][j]);
                 }
             }
+            //----------------------------------------------------------------
 
-            // For the objective
+
+
+            // OBJECTIVE------------------------------------------------------
             IloLinearNumExpr objective = cplex.linearNumExpr();
             for(int i = 0; i < n; i++) { // for each cargo
                 for(int j = 0; j < m; j++) { // for each compartment
@@ -55,8 +69,11 @@ public class Example2 {
 
             // Define objective
             cplex.addMaximize(objective);
+            //---------------------------------------------------------------
 
-            // Define constraints
+
+
+            // CONSTRAINTS---------------------------------------------------
             // (1) The total amount carried can't exceed the capacity constraint of each compartment
             for(int i = 0; i < n; i++) {
                 cplex.addLe(cplex.sum(x[i]), a[i]);
@@ -71,8 +88,11 @@ public class Example2 {
 
             // Suppress the output printout
             cplex.setParam(IloCplex.IntParam.SimDisplay, 0);
+            //-------------------------------------------------------------
 
-            // Solve the model
+
+
+            // SOLUTION----------------------------------------------------
             if(cplex.solve()) {
                 System.out.println("Obj fun = " + cplex.getObjValue());
                 for(int i = 0; i < n; i++) {
@@ -84,9 +104,12 @@ public class Example2 {
             } else {
                 System.out.println("Model not solved!");
             }
+            //------------------------------------------------------------
 
+
+            //END---------------------------------------------------------
             cplex.end();
-
+            //------------------------------------------------------------
         } catch(IloException ex) {
             ex.printStackTrace();
         }
