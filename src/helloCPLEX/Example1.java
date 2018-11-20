@@ -20,10 +20,12 @@ public class Example1 {
             * I L(Linear) O(Optimization) ??
             *
             * */
+            System.out.println("Modelling...");
+
 
             //Cplex object, derived from IloAlgorithm, capable of solving optimization problems
             IloCplex cplex  = new IloCplex();
-            System.out.println("Modelling...");
+
 
             /*
             * An instance of this class represents a numeric variable in a model.
@@ -56,17 +58,41 @@ public class Example1 {
 
 
 
+            /*
+            * IObjective AddMinimize(INumExpr expr)
+            * Creates and returns an objective to minimize the expression and adds it to the invoking model.
+            * Creates and returns a named objective function and adds it to the invoking model.
+            * */
             cplex.addMinimize(objective);
             //cplex.addMaximize(objective);
 
 
             //Constraints
+            /*
+            * public IloRange addGe(IloNumExpr e, double v)
+            * Creates and returns a range representing the constraint that the specified numeric expression must be greater than or equal to the specified value.
+            *
+            */
             cplex.addGe(x,0);
+
+            /*
+            * public IloRange addLe(IloNumExpr e, double v)
+            * Creates and returns a range forcing the specified numeric expression to be less than than or equal to the specified value.
+            *
+            * */
             cplex.addLe(x,1);
 
             //Solve
+            /*
+            * This method returns an IloBool value, where IloTrue indicates that cplex successfully found a feasible (yet not necessarily optimal) solution, and IloFalse specifies that no solution was found.
+            * More precise information about the outcome of the last call to the method IloCplex::solve can be obtained by calling cplex.getStatus()
+            *
+            * */
             cplex.solve();
 
+            /*
+            * If a solution has been found with the solve method, you access it and then query it using a variety of methods. The objective function can be accessed by the call getValue(var)
+            * */
             System.out.println("x is : "+cplex.getValue(x));
 
 
