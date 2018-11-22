@@ -19,7 +19,7 @@ public class Example1 {
             * What does I L O stand for?
             * I L(Linear) O(Optimization) ??
             *
-            * */
+            */
             System.out.println("Modelling...");
 
 
@@ -42,7 +42,7 @@ public class Example1 {
             * This is the interface for scalar product expressions for numerical variables of any type. Objects of type IloLinearNumExpr represent linear expressions of the form
             * It extends IloNumExpr
             * This helps us create our objective function
-            * */
+            */
             IloLinearNumExpr objective = cplex.linearNumExpr();
 
 
@@ -53,7 +53,7 @@ public class Example1 {
             *
             *Adds the new term <<  coef * var  >> to a scalar product.
             *
-            * */
+            */
             objective.addTerm(1, x);
 
 
