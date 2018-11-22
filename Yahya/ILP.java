@@ -68,7 +68,7 @@ public class ILP
         {
             for (int j = 0; j < size; j++)
             {
-                String var = "X" + i + "," + j;
+                String var = "X" + i + "," + j; // X1,2 etc
                 linear.add(L[i][j], var);
             }
         }

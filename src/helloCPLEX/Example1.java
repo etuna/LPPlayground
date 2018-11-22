@@ -88,13 +88,15 @@ public class Example1 {
             * More precise information about the outcome of the last call to the method IloCplex::solve can be obtained by calling cplex.getStatus()
             *
             * */
+
+
             cplex.solve();
 
             /*
             * If a solution has been found with the solve method, you access it and then query it using a variety of methods. The objective function can be accessed by the call getValue(var)
             * */
             System.out.println("x is : "+cplex.getValue(x));
-
+            System.out.println("CPLEX SOLVE:"+cplex.solve());
 
 
         }catch(IloException e){
