@@ -1,43 +1,57 @@
 package ILPtoCPLEX;
 
-import ilog.concert.IloException;
-import ilog.concert.IloLinearNumExpr;
-import ilog.concert.IloNumExpr;
-import ilog.concert.IloNumVar;
+import ilog.concert.*;
+
+
 import ilog.cplex.IloCplex;
 import net.sf.javailp.Linear;
 import net.sf.javailp.Result;
 import net.sf.javailp.Solver;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class IPLEX {
 
 
-    public void main(String[] args) throws IloException {
-        int size = 128;
-        int MNR = 5;
+    IloNumVar[][] randomNumbers;
+    static IloNumVar[][] X;
+    static IloNumVar[] Y;
+    static IloNumExpr objective;
 
-        IloLinearNumExpr[][]L = new IloLinearNumExpr[size][size];
-        IloCplex result = replicaGenerator(L,size,MNR);
-        IloNumVar []res = new IloNumVar[128];
-        for(int i=0; i<result.getValues(res).length;i++){
-            System.out.println(res[i]);
-        }
-
+    public IPLEX() {
 
     }
 
 
-    public IloCplex replicaGenerator(IloLinearNumExpr[][] L, int size, int MNR) throws IloException {
-        IloCplex cpx = ILP(L,size,MNR);
+    public static IloCplex replicaGenerator(int[][] L, int size, int MNR) throws IloException {
+        IloCplex cpx = ILP(L, size, MNR);
         return cpx;
     }
 
-    public IloCplex ILP(IloLinearNumExpr[][] L, int size, int MNR) throws IloException {
+    public static void generateXY(IloCplex cplex, int size) throws IloException {
+        X = new IloNumVar[size][size];
+        Y = new IloNumVar[size];
+        for (int i = 0; i < size; i++) {
+
+                X[i] = cplex.numVarArray(10,0, Double.MAX_VALUE);
+
+
+        }
+
+        for (int i = 0; i < size; i++) {
+            Y[i] = cplex.numVar(0, Double.MAX_VALUE);
+
+        }
+
+    }
+
+
+    public static IloCplex ILP(int[][] L, int size, int MNR) throws IloException {
         //Cplex object, derived from IloAlgorithm, capable of solving optimization problems
         IloCplex cplex = new IloCplex();
 
-        IloLinearNumExpr[][] X = new IloLinearNumExpr[size][size];
-        IloLinearNumExpr[] Y = new IloLinearNumExpr[size];
+        generateXY(cplex, size);
         /**
          * Constructing a Problem:
          * Minimize: Sigma(i)Sigma(j) LijXij
@@ -54,43 +68,42 @@ public class IPLEX {
          * It extends IloNumExpr
          * This helps us create our objective function
          */
-        IloLinearNumExpr objective = cplex.linearNumExpr(); //Linear of ILP LPSOLVE
+        objective = cplex.linearNumExpr(); //Linear of ILP LPSOLVE
 
 
         /**
          * Part 1: Minimize: Sigma(i)Sigma(j) LijXij
          */
 
+
+        //TODO
+        //Populate L with random nums
+
+
         IloNumExpr expr;
         IloLinearNumExpr linear;
-        for (int i = 0; i < size; i++)
-        {
-            for (int j = 0; j < size; j++)
-            {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 //String var = "X" + i + "," + j; // X1,2 etc
                 /*  Lij*Xij  */
-                expr = cplex.linearNumExpr();
-                expr = cplex.prod(L[i][j],X[i][j]);
-                objective.addTerm((IloNumVar) expr,1);
+               // expr = cplex.linearNumExpr();
+                //expr = cplex.prod(L[i][j], X[i][j]);
+                ((IloLinearNumExpr) objective).addTerm(L[i][j], X[i][j]);
             }
         }
 
         cplex.addMinimize(objective);
 
 
-
-
         /**
          * Part 2: for each i,j Yi>= Xij
          */
 
-        for (int i = 0; i < size; i++)
-        {
-            for (int j = 0; j < size; j++)
-            {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
 
                 //linear = cplex.linearNumExpr();
-               // String var = "X" + i + "," + j;
+                // String var = "X" + i + "," + j;
                 //linear.addTerm(1, X[i][j]);
                 //var = "Y" + i;
                 //linear.addTerm(-1, Y[i]);
@@ -102,24 +115,18 @@ public class IPLEX {
         }
 
 
-
-
-
-
         /**
          * Part 3: Sigma(i)Xij = 1
          */
-        for (int j = 0; j < size; j++)
-        {
+        for (int j = 0; j < size; j++) {
             linear = cplex.linearNumExpr();
-            for (int i = 0; i < size; i++)
-            {
+            for (int i = 0; i < size; i++) {
                 //String var = "X" + i + "," + j;
-                linear.addTerm(1, (IloNumVar) X[i][j]);
+                ((IloLinearNumExpr) linear).addTerm(1, (IloNumVar) X[i][j]);
 
 
             }
-            cplex.addEq(linear,1);
+            cplex.addEq(linear, 1);
         }
 
 
@@ -127,20 +134,18 @@ public class IPLEX {
          * Part 4: Sigma(j)Xij >= Yi
          */
         //IloNumVar total;
-        for (int i = 0; i < size; i++)
-        {
+        for (int i = 0; i < size; i++) {
             //linear = new Linear();
             linear = cplex.linearNumExpr();
-            for (int j = 0; j < size; j++)
-            {
+            for (int j = 0; j < size; j++) {
                 //if ((repType == Simulator.system.PRIVATE_REPLICATION && j >= Simulator.system.getNOR())) continue;
                 //String var = "X" + i + "," + j;
-                linear.addTerm((IloNumVar) X[i][j],1);
+                ((IloLinearNumExpr) linear).addTerm(1, (IloNumVar) X[i][j]);
             }
 
             //String var = "Y" + i;
             //linear.add(1, var);
-            cplex.addGe(linear, Y[i]);
+            //cplex.addGe(linear, Y[i]);
         }
 
 
@@ -148,61 +153,58 @@ public class IPLEX {
          * Part 5: Sigma(i)Yi <= MNR
          */
         linear = cplex.linearNumExpr();
-        for (int i = 0; i < size; i++)
-        {
+        for (int i = 0; i < size; i++) {
             //String var = "Y" + i;
-            linear.addTerm(1, (IloNumVar) Y[i]);
+            ((IloLinearNumExpr) linear).addTerm(1, (IloNumVar) Y[i]);
         }
         cplex.addLe(linear, MNR);
 
 
         /**
          * Part 6: Sigma(j)Xij >= Yi
-         */
-        for (int i = 0; i < size; i++)
-        {
 
-            for (int j = 0; j < size; j++)
-            {
+        for (int i = 0; i < size; i++) {
+
+            for (int j = 0; j < size; j++) {
                 //if (repType == Simulator.system.PRIVATE_REPLICATION && j >= Simulator.system.getNOR()) continue;
                 linear = cplex.linearNumExpr();
                 //String var = "X" + i + "," + j;
-                linear.addTerm(1, (IloNumVar) X[i][j]);
+                ((IloLinearNumExpr) linear).addTerm(1, (IloNumVar) X[i][j]);
                 //problem.add(linear, ">=", 0);
                 //linear = new Linear();
-               // linear.add(1, var);
+                // linear.add(1, var);
                 //problem.add(linear, "<=", 1);
 
             }
 
             //linear = new Linear();
-           // String var = "Y" + i;
+            // String var = "Y" + i;
             //linear.add(1, var);
             //problem.add(linear, "<=", 1);
 
             //linear = new Linear();
-           // var = "Y" + i;
+            // var = "Y" + i;
             //linear.add(1, var);
-           //problem.add(linear, ">=", 0);
+            //problem.add(linear, ">=", 0);
             cplex.addGe(linear, Y[i]);
         }
-
+*/
 
         /**
          * Part 7: Set the type of Xij and Yi
 
-        for (int i = 0; i < size; i++)
-        {
-            for (int j = 0; j < size; j++)
-            {
-                //if ((repType == Simulator.system.PRIVATE_REPLICATION && j > Simulator.system.getNOR())) continue;
-                String var = "X" + i + "," + j;
-                problem.setVarType(var, Integer.class);
-            }
+         for (int i = 0; i < size; i++)
+         {
+         for (int j = 0; j < size; j++)
+         {
+         //if ((repType == Simulator.system.PRIVATE_REPLICATION && j > Simulator.system.getNOR())) continue;
+         String var = "X" + i + "," + j;
+         problem.setVarType(var, Integer.class);
+         }
 
-            String var = "Y" + i;
-            problem.setVarType(var, Integer.class);
-        } */
+         String var = "Y" + i;
+         problem.setVarType(var, Integer.class);
+         } */
 
 
         /**
@@ -217,7 +219,7 @@ public class IPLEX {
         //System.out.println(result);
 
         //System.exit(0);
-        return (cplex);
+        return cplex;
     }
 
 
