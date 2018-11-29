@@ -34,7 +34,13 @@ public class IPLEX {
         Y = new IloNumVar[size];
         for (int i = 0; i < size; i++) {
 
-                X[i] = cplex.numVarArray(10,0, Double.MAX_VALUE);
+            for(int j=0; j<size;j++) {
+                //X[i] = cplex.numVarArray(1,0, Double.MAX_VALUE);
+
+                // TODO
+                // LOOK AT NUMVARARRAY!
+                X[i][j] = cplex.numVar(0, Double.MAX_VALUE);
+            }
 
 
         }
@@ -76,8 +82,6 @@ public class IPLEX {
          */
 
 
-        //TODO
-        //Populate L with random nums
 
 
         IloNumExpr expr;
