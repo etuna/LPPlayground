@@ -1,15 +1,11 @@
 package ILPtoCPLEX;
 
 import ilog.concert.IloException;
-import ilog.concert.IloIntExpr;
-import ilog.concert.IloIntVar;
-import ilog.concert.IloNumVar;
 import ilog.cplex.IloCplex;
 
 import java.util.Random;
 
 import static ILPtoCPLEX.IPLEX.objective;
-import static ILPtoCPLEX.IPLEX.replicaGenerator;
 
 public class Test {
 
@@ -72,6 +68,10 @@ public class Test {
          *
          */
 
+        System.out.println("\nLPSOLVE SOLUTION------------------------------");
+
+        ILP ilp = new ILP();
+        ilp.replicaGenerator(ilp.process(L,size,MNR), size);
 
 
     }
