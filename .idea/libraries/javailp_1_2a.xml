@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="lpsolve55j">
+  <library name="javailp-1.2a">
     <CLASSES>
-      <root url="jar://C:/Windows/System32/lpsolve55j.jar!/" />
+      <root url="jar://C:/Windows/System32/javailp-1.2a.jar!/" />
     </CLASSES>
     <JAVADOC />
     <NATIVE>
