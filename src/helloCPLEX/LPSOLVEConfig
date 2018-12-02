@@ -1,0 +1,11 @@
+ 1- Download LP_SOLVE_5.5.2.0_(DEV and EXE)_WIN64.ZIP
+ 2-Extract them and copy their CONTENT directly to \Windows\System32 directly.
+    NOTE: Do not put their content in any sub folders!
+ 3-Download and copy the LPSOLVE55j.dll to \Windows\System32
+ 4-Download and include the jar files in your project build path. You can use this link to   include a jar file in your build path.
+
+---TroubleShooting ( LPSOLVE on Intellij IDEA )
+After satisfying the instructions above, Intellij adds the external jars into the project. However, native library location is not specified. This causes "Exception in thread “main” java.lang.UnsatisfiedLinkError: no lpsolve55j in java.library.path"
+Adding the native library locations of lpsolve55j.jar and javailp-1.2a.jar (as /PathTo/System32) solves the problem.
+Make sure that the Project Structure is configured as given in the Figure1.jpg and Figure2.jpg
+-----------------------------------------------
