@@ -17,7 +17,7 @@ public class IPLEX {
     IloNumVar[][] randomNumbers;
     static IloNumVar[][] X;
     static IloNumVar[] Y;
-    static IloNumExpr objective;
+    static IloLQNumExpr objective;
 
     public IPLEX() {
 
@@ -74,7 +74,7 @@ public class IPLEX {
          * It extends IloNumExpr
          * This helps us create our objective function
          */
-        objective = cplex.linearNumExpr(); //Linear of ILP LPSOLVE
+        objective = cplex.lqNumExpr(); //Linear of ILP LPSOLVE
 
 
         /**
@@ -85,14 +85,15 @@ public class IPLEX {
 
 
         IloNumExpr expr;
-        IloLinearNumExpr linear;
+        IloLQNumExpr linear;
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 //String var = "X" + i + "," + j; // X1,2 etc
                 /*  Lij*Xij  */
                // expr = cplex.linearNumExpr();
                 //expr = cplex.prod(L[i][j], X[i][j]);
-                ((IloLinearNumExpr) objective).addTerm(L[i][j], X[i][j]);
+                ((IloLQNumExpr) objective).addTerm(L[i][j], X[i][j]);
+
             }
         }
 
@@ -123,10 +124,10 @@ public class IPLEX {
          * Part 3: Sigma(i)Xij = 1
          */
         for (int j = 0; j < size; j++) {
-            linear = cplex.linearNumExpr();
+            linear = cplex.lqNumExpr();
             for (int i = 0; i < size; i++) {
                 //String var = "X" + i + "," + j;
-                ((IloLinearNumExpr) linear).addTerm(1, (IloNumVar) X[i][j]);
+                ((IloLQNumExpr) linear).addTerm(1, (IloNumVar) X[i][j]);
 
 
             }
@@ -140,11 +141,11 @@ public class IPLEX {
         //IloNumVar total;
         for (int i = 0; i < size; i++) {
             //linear = new Linear();
-            linear = cplex.linearNumExpr();
+            linear = cplex.lqNumExpr();
             for (int j = 0; j < size; j++) {
                 //if ((repType == Simulator.system.PRIVATE_REPLICATION && j >= Simulator.system.getNOR())) continue;
                 //String var = "X" + i + "," + j;
-                ((IloLinearNumExpr) linear).addTerm(1, (IloNumVar) X[i][j]);
+                ((IloLQNumExpr) linear).addTerm(1, (IloNumVar) X[i][j]);
             }
 
             //String var = "Y" + i;
@@ -156,7 +157,7 @@ public class IPLEX {
         /**
          * Part 5: Sigma(i)Yi <= MNR
          */
-        linear = cplex.linearNumExpr();
+        linear = cplex.lqNumExpr();
         for (int i = 0; i < size; i++) {
             //String var = "Y" + i;
             ((IloLinearNumExpr) linear).addTerm(1, (IloNumVar) Y[i]);

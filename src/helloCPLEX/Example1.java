@@ -1,17 +1,20 @@
 package helloCPLEX;
 
-import ilog.concert.*;
-import ilog.cplex.*;
 
+import ilog.concert.IloException;
+import ilog.concert.IloLQNumExpr;
+import ilog.concert.IloLinearNumExpr;
+import ilog.concert.IloNumVar;
+import ilog.cplex.IloCplex;
 
 public class Example1 {
 
-    public static void main(String []args){
+    public static void main(String []args) throws IloException {
         model();
         System.out.println("test");
     }
 
-    public static void model() {
+    public static void model() throws IloException {
 
         try {
             //TODO
@@ -43,7 +46,7 @@ public class Example1 {
             * It extends IloNumExpr
             * This helps us create our objective function
             */
-            IloLinearNumExpr objective = cplex.linearNumExpr();
+            IloLQNumExpr objective = cplex.lqNumExpr();
 
 
 

@@ -13,7 +13,7 @@ public class Test {
     public static void main(String[] args) throws IloException {
 
 
-        int size = 40;
+        int size = 10;
         int MNR = 5;
         int[][] L = new int[size][size];
         Random rand = new Random();
