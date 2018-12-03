@@ -67,18 +67,19 @@ public class IPLEX {
         for (int i = 0; i < size; i++) {
 
             for(int j=0; j<size;j++) {
-                //X[i] = cplex.numVarArray(1,0, Double.MAX_VALUE);
+                X[i] = cplex.numVarArray(size,0, Double.MAX_VALUE);
 
                 // TODO
                 // LOOK AT NUMVARARRAY!
-                X[i][j] = cplex.numVar(0, Double.MAX_VALUE);
+                //X[i][j] = cplex.numVar(0, Double.MAX_VALUE);
             }
 
 
         }
 
         for (int i = 0; i < size; i++) {
-            Y[i] = cplex.numVar(0, Double.MAX_VALUE);
+            Y = cplex.numVarArray(size,0,Double.MAX_VALUE);
+            //Y[i] = cplex.numVar(0, Double.MAX_VALUE);
 
         }
 
