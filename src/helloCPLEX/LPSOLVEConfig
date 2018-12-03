@@ -6,6 +6,6 @@
 
 ---TroubleShooting ( LPSOLVE on Intellij IDEA )
 After satisfying the instructions above, Intellij adds the external jars into the project. However, native library location is not specified. This causes "Exception in thread “main” java.lang.UnsatisfiedLinkError: no lpsolve55j in java.library.path"
-Adding the native library locations of lpsolve55j.jar and javailp-1.2a.jar (as /PathTo/System32) solves the problem.
+Adding the native library locations of lpsolve55j.jar and javailp-1.2a.jar (as /Path/To/JarDlls e.g /PathTo/System32) solves the problem.
 Make sure that the Project Structure is configured as given in the Figure1.jpg and Figure2.jpg
 -----------------------------------------------
