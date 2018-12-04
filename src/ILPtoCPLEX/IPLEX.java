@@ -1,16 +1,17 @@
 package ILPtoCPLEX;
+/**
+ * @author etuna
+ *
+ */
 
-import ilog.concert.*;
-
-
+import ilog.concert.IloException;
+import ilog.concert.IloLQNumExpr;
+import ilog.concert.IloNumVar;
 import ilog.cplex.IloCplex;
-import net.sf.javailp.Linear;
-import net.sf.javailp.Result;
-import net.sf.javailp.Solver;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
+/**
+ * IPLEX
+ */
 public class IPLEX {
 
 
@@ -39,6 +40,32 @@ public class IPLEX {
      * NumVarArray() : Creates and returns an array of numeric variables representing an array of columns with specified lower and upper bounds as well as type.
      * NumVar()      : NumVar(Double, Double), it has several signs. Creates and returns a numeric variable with specified bounds. (Inherited from CplexModeler.)
      *
+     *
+     * ###########################
+     * Do we need NumVarArray() ?
+     * ###########################
+     *
+     * public virtual INumVar[] NumVarArray(
+     * 	int n,
+     * 	double lb,
+     * 	double ub)
+     *
+     *
+     * public interface INumVar : INumExpr, IAddable, ICopyable
+     *
+     *
+     * --------------------------
+     *  SAME THINGS BELOW
+     *
+     *  []X = IloNumVar[size]
+     *  X[i] = cplex.numVarArray(size,0, Double.MAX_VALUE);
+     *
+     *  and
+     *
+     *  [][] X = IloNumVar[size][size]
+     *  X[i][j] = cplex.numVar(0, Double.MAX_VALUE);
+     *
+     * --------------------------
      * #####################
      * #####################
      *
@@ -51,16 +78,34 @@ public class IPLEX {
     static IloLQNumExpr objective;
     //------------------------------------------------------
 
+    /**
+     * IPLEX Constructor
+     */
     public IPLEX() {
         //Empty constructor
     }
 
 
+    /**
+     *
+     * @param L
+     * @param size
+     * @param MNR
+     * @return
+     * @throws IloException
+     */
     public static IloCplex replicaGenerator(int[][] L, int size, int MNR) throws IloException {
         IloCplex cpx = ILP(L, size, MNR);
         return cpx;
     }
 
+
+    /**
+     *
+     * @param cplex
+     * @param size
+     * @throws IloException
+     */
     public static void generateXY(IloCplex cplex, int size) throws IloException {
         X = new IloNumVar[size][size];
         Y = new IloNumVar[size];
@@ -87,6 +132,7 @@ public class IPLEX {
 
 
 
+    //----------------------------------------------
     /**
      * Constructing a Problem:
      * Minimize: Sigma(i)Sigma(j) LijXij
@@ -95,6 +141,16 @@ public class IPLEX {
      * Sigma(i)Xij = 1
      * Sigma(j)Xij >= Yi
      * Sigma(i)Yi <= MNR
+     */
+    //----------------------------------------------
+
+    /**
+     *
+     * @param L
+     * @param size
+     * @param MNR
+     * @return
+     * @throws IloException
      */
     public static IloCplex ILP(int[][] L, int size, int MNR) throws IloException {
 

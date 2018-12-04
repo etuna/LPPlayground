@@ -12,6 +12,11 @@ public class Main {
     public static ArrayList<Integer> iplexResults = new ArrayList<Integer>();
     public static ArrayList<Integer> ilpResults = new ArrayList<Integer>();
 
+    /**
+     *
+     * @param args
+     * @throws IloException
+     */
     public static void main(String[] args) throws IloException {
 
 
@@ -43,13 +48,13 @@ public class Main {
         result.solve();
 
 
-        double[] resY = getIPLEXYVals(iplex,result,size);
-        double[][] resX = getIPLEXXVals(iplex,result,size);
+        double[] resY = getIPLEXYVals(iplex, result, size);
+        double[][] resX = getIPLEXXVals(iplex, result, size);
 
         System.out.println("RESULTS OF CPLEX SOLUTION------");
         for (int i = 0; i < resY.length; i++) {
-           // System.out.println(resY[i]);
-            if(resY[i]==1) {
+            // System.out.println(resY[i]);
+            if (resY[i] == 1) {
                 iplexResults.add(i);
                 System.out.println(i);
             }
@@ -58,8 +63,6 @@ public class Main {
         System.out.println("---------------------------------------");
         /**##############################################################*/
         /**##############################################################*/
-
-
 
 
         /**##############################################################*/
@@ -72,13 +75,20 @@ public class Main {
         System.out.println("\nLPSOLVE SOLUTION------------------------------");
 
         ILP ilp = new ILP();
-        ilp.replicaGenerator(ilp.process(L,size,MNR), size);
-
-
+        ilp.replicaGenerator(ilp.process(L, size, MNR), size);
 
 
     }
 
+
+    /**
+     *
+     * @param iplex
+     * @param result
+     * @param size
+     * @return
+     * @throws IloException
+     */
     public static double[][] getIPLEXXVals(IPLEX iplex, IloCplex result, int size) throws IloException {
         double x[][] = new double[size][size];
         for (int i = 0; i < size; i++) {
@@ -88,6 +98,14 @@ public class Main {
         return x;
     }
 
+    /**
+     *
+     * @param iplex
+     * @param result
+     * @param size
+     * @return
+     * @throws IloException
+     */
     public static double[] getIPLEXYVals(IPLEX iplex, IloCplex result, int size) throws IloException {
         double y[] = new double[size];
         y = result.getValues(iplex.Y);
