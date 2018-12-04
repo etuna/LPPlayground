@@ -14,7 +14,7 @@ public class Test {
 
 
         //Variables---------------------------------------------
-        int size = 128;
+        int size = 20;
         int MNR = 5;
         int[][] L = new int[size][size];
         Random rand = new Random();
@@ -45,6 +45,7 @@ public class Test {
 
         System.out.println("RESULTS OF CPLEX SOLUTION------");
         for (int i = 0; i < resY.length; i++) {
+           // System.out.println(resY[i]);
             if(resY[i]==1) {
                 System.out.println(i);
             }
