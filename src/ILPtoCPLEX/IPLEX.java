@@ -135,7 +135,7 @@ public class IPLEX {
         for (int j = 0; j < size; j++) {
             linear = cplex.lqNumExpr();
             for (int i = 0; i < size; i++) {
-                linear.addTerm(1, X[i][j]);  //Xij s
+                linear.addTerm(1, X[i][j]);  //E Xij s
             }
             cplex.addEq(linear, 1);
         }
