@@ -113,9 +113,7 @@ public class IPLEX {
 
             for(int j=0; j<size;j++) {
                 X[i] = cplex.numVarArray(size,0, Double.MAX_VALUE);
-
-                // TODO
-                // LOOK AT NUMVARARRAY!
+                //OR
                 //X[i][j] = cplex.numVar(0, Double.MAX_VALUE);
             }
 
