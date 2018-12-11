@@ -25,7 +25,7 @@ public class Main {
 
         //Variables---------------------------------------------
         int size = 20;
-        int MNR = 5;
+        int MNR = 1;
         int[][] L = new int[size][size];
         Random rand = new Random();
         //------------------------------------------------------
