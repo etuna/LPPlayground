@@ -9,6 +9,8 @@ import ilog.concert.IloLQNumExpr;
 import ilog.concert.IloNumVar;
 import ilog.cplex.IloCplex;
 
+import java.util.ArrayList;
+
 /**
  * IPLEX
  */
@@ -76,6 +78,8 @@ public class IPLEX {
     static IloNumVar[][] X;
     static IloNumVar[] Y;
     static IloLQNumExpr objective;
+    static int minXTracker =-1;
+    static ArrayList<Integer> XIndexes = new ArrayList<Integer>();
     //------------------------------------------------------
 
     /**
@@ -186,11 +190,12 @@ public class IPLEX {
         /**
          * Part 3: Sigma(i)Xij = 1
          */
-        for (int j = 0; j < size; j++) {
+        for (int i = 0; i < size; i++) {
             linear = cplex.lqNumExpr();
-            for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 linear.addTerm(1, X[i][j]);  //E Xij s
             }
+
             cplex.addEq(linear, 1);
         }
 

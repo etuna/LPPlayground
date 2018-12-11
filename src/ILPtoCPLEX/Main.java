@@ -119,4 +119,29 @@ public class Main {
         y = result.getValues(iplex.Y);
         return y;
     }
+
+    public double[] getXTotals(double[][] xs){
+        double total = 0;
+        double[] xTotals = new double[xs.length];
+        for(int i=0; i<xs.length; i++){
+            for(int j=0; j<xs[i].length;j++){
+                total += xs[i][j];
+            }
+            xTotals[i] = total;
+        }
+        return xTotals;
+    }
+
+    public int getXIndexForMin(double[] xTotals){
+        double min  = 999;
+        int ind = -1;
+        for(int i =0; i<xTotals.length;i++)
+        {
+            if(xTotals[i]<min){
+                min = xTotals[i];
+                ind = i;
+            }
+        }
+        return ind;
+    }
 }
