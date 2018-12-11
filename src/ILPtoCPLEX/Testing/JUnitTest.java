@@ -18,13 +18,17 @@ public class JUnitTest {
         Main.main(null);
     }
 
+    @Test
+    public void objectiveTest() throws IloException {
+        assertEquals(Main.ILPResult.getObjective().doubleValue(),Main.ILPResult.getObjective().doubleValue(), Main.IPLEXResult.getObjValue());
+    }
 
     /**
      *
      * @throws IloException
      */
     @Test
-    public void equalTest() throws IloException {
+    public void equalYTest() throws IloException {
         assertEquals(Main.ilpResults, Main.iplexResults);
     }
 
@@ -33,7 +37,7 @@ public class JUnitTest {
      * @throws IloException
      */
     @Test
-    public void notEqualTest() throws IloException {
+    public void notEqualYTest() throws IloException {
         assertNotEquals(Main.ilpResults, Main.iplexResults);
     }
 }

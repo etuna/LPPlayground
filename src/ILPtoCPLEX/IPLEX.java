@@ -215,6 +215,7 @@ public class IPLEX {
         cplex.addLe(linear, MNR);
 
         //Return the cplex object
+        Main.IPLEXResult = cplex;
         return cplex;
     }
 

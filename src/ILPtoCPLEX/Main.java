@@ -2,6 +2,7 @@ package ILPtoCPLEX;
 
 import ilog.concert.IloException;
 import ilog.cplex.IloCplex;
+import net.sf.javailp.Result;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -11,6 +12,8 @@ public class Main {
 
     public static ArrayList<Integer> iplexResults = new ArrayList<Integer>();
     public static ArrayList<Integer> ilpResults = new ArrayList<Integer>();
+    public static Result ILPResult;
+    public static IloCplex IPLEXResult;
 
     /**
      *
@@ -60,6 +63,9 @@ public class Main {
             }
         }
 
+        //Double obj = result.getObjValue();
+        //System.out.println(obj);
+
         System.out.println("---------------------------------------");
         /**##############################################################*/
         /**##############################################################*/
@@ -77,6 +83,8 @@ public class Main {
         ILP ilp = new ILP();
         ilp.replicaGenerator(ilp.process(L, size, MNR), size);
 
+        //System.out.println(ILPResult.getObjective().doubleValue());
+        System.out.println("------------------------------------------------");
 
     }
 

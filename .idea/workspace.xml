@@ -4,6 +4,8 @@
     <list default="true" id="cac45906-d6e8-40c8-9952-d3893688cf69" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ILPtoCPLEX/IPLEX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ILPtoCPLEX/IPLEX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ILPtoCPLEX/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ILPtoCPLEX/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ILPtoCPLEX/Testing/JUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ILPtoCPLEX/Testing/JUnitTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,45 +51,47 @@
     <session id="-399535166">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="2" />
+          <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="LPSOLVEConfig" value="1" />
+          <entry key="LPSOLVEConfig" value="2" />
           <entry key="class" value="1" />
           <entry key="java" value="11" />
-          <entry key="jpg" value="2" />
+          <entry key="jpg" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="Image" value="2" />
+          <entry key="Image" value="4" />
           <entry key="JAVA" value="10" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="LPSOLVEConfig" value="570" />
           <entry key="dummy" value="4" />
-          <entry key="java" value="7674" />
+          <entry key="java" value="8127" />
           <entry key="txt" value="127" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7674" />
+          <entry key="JAVA" value="8127" />
           <entry key="PLAIN_TEXT" value="701" />
         </counts>
       </usages-collector>
@@ -121,11 +125,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/IPLEX.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="65" column="52" lean-forward="true" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
+            <state relative-caret-position="407">
+              <caret line="217" column="33" lean-forward="true" selection-start-line="217" selection-start-column="33" selection-end-line="217" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -136,8 +140,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/ILP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="83" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="83" />
+            <state relative-caret-position="451">
+              <caret line="209" column="32" selection-start-line="209" selection-start-column="32" selection-end-line="209" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -145,22 +149,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="100" column="7" lean-forward="true" selection-start-line="100" selection-start-column="7" selection-end-line="100" selection-end-column="7" />
+            <state relative-caret-position="-240">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#268#277#0" expanded="true" />
-                <element signature="e#344#353#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/Testing/JUnitTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="44" lean-forward="true" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+            <state relative-caret-position="301">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -194,11 +199,11 @@
         <option value="$PROJECT_DIR$/Yahya/ILP.java" />
         <option value="$PROJECT_DIR$/src/helloCPLEX/Example1.java" />
         <option value="$PROJECT_DIR$/src/helloCPLEX/LPSOLVEConfig" />
-        <option value="$PROJECT_DIR$/src/ILPtoCPLEX/ILP.java" />
         <option value="$PROJECT_DIR$/src/ILPtoCPLEX/Test.java" />
+        <option value="$PROJECT_DIR$/src/ILPtoCPLEX/ILP.java" />
         <option value="$PROJECT_DIR$/src/ILPtoCPLEX/Main.java" />
-        <option value="$PROJECT_DIR$/src/ILPtoCPLEX/Testing/JUnitTest.java" />
         <option value="$PROJECT_DIR$/src/ILPtoCPLEX/IPLEX.java" />
+        <option value="$PROJECT_DIR$/src/ILPtoCPLEX/Testing/JUnitTest.java" />
       </list>
     </option>
   </component>
@@ -256,6 +261,12 @@
               <item name="LPPlayground" type="b2602c69:ProjectViewProjectNode" />
               <item name="LPPlayground" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="helloCPLEX" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LPPlayground" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LPPlayground" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ILPtoCPLEX" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -283,7 +294,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543920996976" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544518433682" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="C:/Program Files/IBM/ILOG/CPLEX_Studio128/cplex/bin/x64_win64" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -312,6 +323,19 @@
   <component name="RunManager" selected="JUnit.JUnitTest">
     <configuration name="IPLEX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ILPtoCPLEX.IPLEX" />
+      <module name="LPPlayground" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ILPtoCPLEX.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ILPtoCPLEX.Main" />
       <module name="LPPlayground" />
       <extension name="coverage">
         <pattern>
@@ -362,14 +386,15 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.IPLEX" />
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.JUnitTest" />
+      <item itemvalue="Application.Main (1)" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.JUnitTest" />
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.IPLEX" />
         <item itemvalue="Application.Main" />
@@ -400,7 +425,9 @@
       <workItem from="1543760514336" duration="4662000" />
       <workItem from="1543830703008" duration="927000" />
       <workItem from="1543833294829" duration="911000" />
-      <workItem from="1543906615016" duration="6469000" />
+      <workItem from="1543906615016" duration="6776000" />
+      <workItem from="1544095823234" duration="794000" />
+      <workItem from="1544517294004" duration="1087000" />
     </task>
     <task id="LOCAL-00001" summary="First LP Solving Example">
       <created>1542375274324</created>
@@ -591,13 +618,17 @@
       <option name="project" value="LOCAL" />
       <updated>1543919045946</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="LPSOLVE to CPLEX --- JUnit">
+      <created>1543921003242</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1543921003242</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JUnitTest - 2018.12.04 at 13h 02m 47s.xml">
-      <configuration name="JUnitTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="JUnitTest - 2018.12.04 at 13h 02m 53s.xml">
       <configuration name="JUnitTest" configurationId="JUnit" />
     </history-entry>
@@ -625,9 +656,12 @@
     <history-entry file="JUnitTest - 2018.12.04 at 13h 03m 35s.xml">
       <configuration name="JUnitTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="JUnitTest - 2018.12.06 at 14h 31m 43s.xml">
+      <configuration name="JUnitTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65215000" />
+    <option name="totallyTimeSpent" value="67403000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -642,8 +676,8 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4984227" visible="true" weight="0.10341151" />
-      <window_info id="Structure" order="1" sideWeight="0.50157726" side_tool="true" visible="true" weight="0.10341151" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49684542" visible="true" weight="0.10554371" />
+      <window_info id="Structure" order="1" sideWeight="0.5031546" side_tool="true" visible="true" weight="0.10554371" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -661,7 +695,6 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.30911064" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32995737" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.2489339" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -671,6 +704,7 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Database" order="7" weight="0.23560767" />
       <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32995737" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -703,17 +737,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/helloCPLEX/Figure1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="jar://C:/Program Files/IBM/ILOG/CPLEX_Studio_Community128/cplex/lib/cplex.jar!/ilog/cplex/IloCplexModeler.class" />
     <entry file="file://$PROJECT_DIR$/src/helloCPLEX/Figure2.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="jar://C:/Program Files/IBM/ILOG/CPLEX_Studio_Community128/cplex/lib/cplex.jar!/ilog/cplex/IloCplexModeler.class" />
+    <entry file="file://$PROJECT_DIR$/src/helloCPLEX/Figure1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/helloCPLEX/LPSOLVEConfig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        <state relative-caret-position="135">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -739,36 +773,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/IPLEX.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="217" column="33" lean-forward="true" selection-start-line="217" selection-start-column="33" selection-end-line="217" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/ILP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="83" selection-start-line="9" selection-start-column="80" selection-end-line="9" selection-end-column="83" />
+        <state relative-caret-position="451">
+          <caret line="209" column="32" selection-start-line="209" selection-start-column="32" selection-end-line="209" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="100" column="7" lean-forward="true" selection-start-line="100" selection-start-column="7" selection-end-line="100" selection-end-column="7" />
+        <state relative-caret-position="-240">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#268#277#0" expanded="true" />
-            <element signature="e#344#353#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/Testing/JUnitTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="44" lean-forward="true" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/IPLEX.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="65" column="52" lean-forward="true" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
+        <state relative-caret-position="301">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
