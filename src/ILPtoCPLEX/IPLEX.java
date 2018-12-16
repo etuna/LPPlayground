@@ -78,15 +78,17 @@ public class IPLEX {
     static IloNumVar[][] X;
     static IloNumVar[] Y;
     static IloLQNumExpr objective;
-    static int minXTracker =-1;
-    static ArrayList<Integer> XIndexes = new ArrayList<Integer>();
+
+    public static ArrayList<Integer> iplexResults = new ArrayList<Integer>();
+    public static IloCplex IPLEXResult;
+    double[] resY;
+    double[][] resX;
     //------------------------------------------------------
 
     /**
      * IPLEX Constructor
      */
     public IPLEX() {
-        //Empty constructor
     }
 
 
@@ -190,12 +192,11 @@ public class IPLEX {
         /**
          * Part 3: Sigma(i)Xij = 1
          */
-        for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
             linear = cplex.lqNumExpr();
-            for (int j = 0; j < size; j++) {
+            for (int i = 0; i < size; i++) {
                 linear.addTerm(1, X[i][j]);  //E Xij s
             }
-
             cplex.addEq(linear, 1);
         }
 
@@ -220,9 +221,80 @@ public class IPLEX {
         cplex.addLe(linear, MNR);
 
         //Return the cplex object
-        Main.IPLEXResult = cplex;
+        IPLEXResult = cplex;
         return cplex;
     }
+    /**
+     *
+     * @param iplex
+     * @param result
+     * @param size
+     * @return
+     * @throws IloException
+     */
+    public static double[][] getIPLEXXVals(IPLEX iplex, IloCplex result, int size) throws IloException {
+        double x[][] = new double[size][size];
+        for (int i = 0; i < size; i++) {
+            x[i] = result.getValues(iplex.X[i]);
+        }
 
+        return x;
+    }
+
+    /**
+     *
+     * @param iplex
+     * @param result
+     * @param size
+     * @return
+     * @throws IloException
+     */
+    public static double[] getIPLEXYVals(IPLEX iplex, IloCplex result, int size) throws IloException {
+        double y[] = new double[size];
+        y = result.getValues(iplex.Y);
+        return y;
+    }
+
+
+    /**
+     *
+     * @param xs
+     * @return
+     */
+    public static double[] getXTotals(double[][] xs){
+        double total = 0;
+        double[] xTotals = new double[xs.length];
+        for(int i=0; i<xs.length; i++){
+            total = 0;
+            for(int j=0; j<xs[i].length;j++){
+                total += xs[i][j];
+            }
+            xTotals[i] = total;
+        }
+        return xTotals;
+    }
+
+    /**
+     *
+     *
+     *
+     * System.out.println("X i values------");
+     *         System.out.println(getXIndexForMin(getXTotals(resX)));
+     *
+     * @param xTotals
+     * @return
+     */
+    public static int getXIndexForMin(double[] xTotals){
+        double min  = 999;
+        int ind = -1;
+        for(int i =0; i<xTotals.length;i++)
+        {
+            if(xTotals[i]<min){
+                min = xTotals[i];
+                ind = i;
+            }
+        }
+        return ind;
+    }
 
 }

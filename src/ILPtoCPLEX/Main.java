@@ -20,12 +20,12 @@ public class Main {
      * @param args
      * @throws IloException
      */
-    public static void main(String[] args) throws IloException {
+    public static void mains(String[] args) throws IloException {
 
 
         //Variables---------------------------------------------
         int size = 20;
-        int MNR = 1;
+        int MNR = 5;
         int[][] L = new int[size][size];
         Random rand = new Random();
         //------------------------------------------------------
@@ -59,9 +59,12 @@ public class Main {
             // System.out.println(resY[i]);
             if (resY[i] == 1) {
                 iplexResults.add(i);
-                System.out.println(i);
+                System.out.println("Y :"+i);
             }
         }
+        System.out.println("X i values------");
+        System.out.println(getXIndexForMin(getXTotals(resX)));
+
 
         //Double obj = result.getObjValue();
         //System.out.println(obj);
@@ -120,10 +123,11 @@ public class Main {
         return y;
     }
 
-    public double[] getXTotals(double[][] xs){
+    public static double[] getXTotals(double[][] xs){
         double total = 0;
         double[] xTotals = new double[xs.length];
         for(int i=0; i<xs.length; i++){
+            total = 0;
             for(int j=0; j<xs[i].length;j++){
                 total += xs[i][j];
             }
@@ -132,7 +136,7 @@ public class Main {
         return xTotals;
     }
 
-    public int getXIndexForMin(double[] xTotals){
+    public static int getXIndexForMin(double[] xTotals){
         double min  = 999;
         int ind = -1;
         for(int i =0; i<xTotals.length;i++)
