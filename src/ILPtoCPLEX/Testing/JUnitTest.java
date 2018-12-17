@@ -16,10 +16,12 @@ public class JUnitTest {
 
 
     //Variables---------------------------------------------
-    static int size = 128;
-    static int MNR = 5;
+    static int size = 10;
+    static int MNR = 2;
     static int[][] L = new int[size][size];
     static Random rand = new Random();
+    public static IPLEX iplex;
+    public static IloCplex iplexResult;
     //------------------------------------------------------
 
 
@@ -40,14 +42,14 @@ public class JUnitTest {
          * IPLEX SOLUTION
          *
          */
-        IPLEX iplex = new IPLEX();
+        iplex = new IPLEX();
 
-        IloCplex result = iplex.replicaGenerator(L, size, MNR);
-        result.solve();
+        iplexResult = iplex.replicaGenerator(L, size, MNR);
+        iplexResult.solve();
 
 
-        double[] resY = iplex.getIPLEXYVals(iplex, result, size);
-        double[][] resX = iplex.getIPLEXXVals(iplex, result, size);
+        double[] resY = iplex.getIPLEXYVals(iplex, iplexResult, size);
+        double[][] resX = iplex.getIPLEXXVals(iplex, iplexResult, size);
 
         //System.out.println("RESULTS OF CPLEX SOLUTION------");
         for (int i = 0; i < resY.length; i++) {
@@ -66,8 +68,6 @@ public class JUnitTest {
         ilp.replicaGenerator(ilp.process(L, size, MNR), size);
 
     }
-
-
     /**
      *
      * @throws IloException
@@ -85,5 +85,13 @@ public class JUnitTest {
     @Test
     public void equalYTest() throws IloException {
         assertEquals(ILP.ilpResults, IPLEX.iplexResults);
+    }
+
+    @Test
+    public void equalXTestOnMin() throws IloException {
+        double minXTotalIPLEX = IPLEX.getXForMin(IPLEX.getXTotals(IPLEX.getIPLEXXVals(iplex,iplexResult,size)));
+        double minXTotalILP = ILP.getMinXFromTotal();
+
+        assertEquals(minXTotalILP, minXTotalILP, minXTotalIPLEX);
     }
 }

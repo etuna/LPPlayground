@@ -297,4 +297,23 @@ public class IPLEX {
         return ind;
     }
 
+
+    /**
+     *
+     * @param xTotals
+     * @return
+     */
+    public static double getXForMin(double[] xTotals){
+        double min  = 999;
+        int ind = -1;
+        for(int i =0; i<xTotals.length;i++)
+        {
+            if(xTotals[i]<min){
+                min = xTotals[i];
+
+            }
+        }
+        return min;
+    }
+
 }
