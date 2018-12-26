@@ -92,6 +92,6 @@ public class JUnitTest {
         double minXTotalIPLEX = IPLEX.getXForMin(IPLEX.getXTotals(IPLEX.getIPLEXXVals(iplex,iplexResult,size)));
         double minXTotalILP = ILP.getMinXFromTotal();
 
-        assertEquals(minXTotalILP, minXTotalILP, minXTotalIPLEX);
+        assertEquals(minXTotalILP, minXTotalIPLEX,1);
     }
 }
