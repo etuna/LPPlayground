@@ -26,7 +26,7 @@ public class JUnitTest {
     //Variables---------------------------------------------
     static int size = 128;
     static int timeSlots = 24;
-    static int repDegree = 1;
+    static int repDegree = 5;
     static double[][] availabilityTable = new double[size][timeSlots];
     static Random rand = new Random();
     public static IPLEX iplex;

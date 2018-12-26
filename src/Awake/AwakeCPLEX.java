@@ -31,6 +31,7 @@ public class AwakeCPLEX {
         //Cplex object, derived from IloAlgorithm, capable of solving optimization problems
         IloCplex cplex = new IloCplex();
 
+
         objective = cplex.lqNumExpr(); //Linear of ILP LPSOLVE
 
         IloNumVar[] U = new IloNumVar[timeSlots];
@@ -61,9 +62,9 @@ public class AwakeCPLEX {
          * Part 1: for each t Ut = sigma(i) YiTit
          * Ut represents the availability per hour
          */
-        linear = cplex.lqNumExpr();
-        for(int t= 0 ; t<timeSlots;t++){
 
+        for(int t= 0 ; t<timeSlots;t++){
+            linear = cplex.lqNumExpr();
             for(int i= 0; i<size; i++){
                 double prob =  availabilityTable[i][t];
                 prob = Math.log(prob * 100);
