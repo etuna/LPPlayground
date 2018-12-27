@@ -1,7 +1,7 @@
 package ILPtoCPLEX;
 /**
- * @author etuna
- *
+ * @author Esat Tunahan Tuna, etuna@ku.edu.tr
+ * KOC UNIVERSITY DISNET
  */
 
 import ilog.concert.IloException;

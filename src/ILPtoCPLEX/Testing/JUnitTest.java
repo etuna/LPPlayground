@@ -1,5 +1,8 @@
 package ILPtoCPLEX.Testing;
-
+/**
+ * @author Esat Tunahan Tuna, etuna@ku.edu.tr
+ * KOC UNIVERSITY DISNET
+ */
 import ILPtoCPLEX.ILP;
 import ILPtoCPLEX.IPLEX;
 import ilog.concert.IloException;
@@ -67,7 +70,6 @@ public class JUnitTest {
          */
         ilp = new ILP();
         ilp.replicaGenerator(ilp.process(L, size, MNR), size);
-
     }
     /**
      *
