@@ -75,14 +75,6 @@ public class JUnitTest {
      */
     @Test
     public void objectiveTest() throws IloException {
-        int iterate = 0;
-        while(iterate<10){
-            solveAgain();
-            if(ILP.ILPResult.getObjective().doubleValue()==IPLEX.IPLEXResult.getObjValue()){
-                break;
-            }
-            iterate++;
-        }
         assertEquals(ILP.ILPResult.getObjective().doubleValue(), IPLEX.IPLEXResult.getObjValue(),1);
         //assertNull(ILP.ILPResult);
     }
@@ -93,34 +85,25 @@ public class JUnitTest {
      */
     @Test
     public void equalYTest() throws IloException {
-        int iterate = 0;
-        while(iterate<10){
-            solveAgain();
-            if(ILP.ILPResult.getObjective().doubleValue()==IPLEX.IPLEXResult.getObjValue()){
-                break;
-            }
-            iterate++;
-        }
         assertEquals(ILP.ilpResults, IPLEX.iplexResults);
     }
 
+    /**
+     *
+     * @throws IloException
+     */
     @Test
     public void equalXTestOnMin() throws IloException {
         double minXTotalIPLEX = IPLEX.getXForMin(IPLEX.getXTotals(IPLEX.getIPLEXXVals(iplex,iplexResult,size)));
         double minXTotalILP = ILP.getMinXFromTotal();
         System.out.println("EqualXTest\nILP:"+minXTotalILP+"\nCPLEX:"+minXTotalIPLEX);
-        int iterate = 0;
-        while(iterate<10){
-            solveAgain();
-            if(ILP.ILPResult.getObjective().doubleValue()==IPLEX.IPLEXResult.getObjValue()){
-                break;
-            }
-            iterate++;
-        }
         assertEquals(minXTotalILP, minXTotalIPLEX,1);
     }
 
-
+    /**
+     *
+     * @throws IloException
+     */
     public void solveAgain() throws IloException {
         iplexResult.solve();
         double[] resY = iplex.getIPLEXYVals(iplex, iplexResult, size);
@@ -133,8 +116,7 @@ public class JUnitTest {
                 System.out.println("Y :"+i);
             }
         }
-
-
         ilp.replicaGenerator(ilp.process(L, size, MNR), size);
     }
+
 }

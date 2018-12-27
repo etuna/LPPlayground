@@ -1,4 +1,8 @@
 package Awake;
+/**
+ * @author Esat Tunahan Tuna, etuna@ku.edu.tr
+ * KOC UNIVERSITY DISNET
+ */
 
 import ilog.concert.IloException;
 import ilog.concert.IloIntVar;
@@ -10,16 +14,18 @@ import java.util.ArrayList;
 
 public class AwakeCPLEX {
 
-    //For random tests: make size 128
-    //Timeslots: 24
-    //rep degree 5
-    //Availability table: a 128 * 24 table filled randomly with doubles between 0 and 1
+    /**
+     *     For random tests: make size 128
+     *     Timeslots: 24
+     *     rep degree 5
+     *     Availability table: a 128 * 24 table filled randomly with doubles between 0 and 1
+     */
 
     //Variables-----------------------
-    public static int workedProperly = 0;
+    public static int workedProperly = 0; //For test purposes
     static IloLQNumExpr objective;
-    public static ArrayList<Integer> AwakeCplexResults = new ArrayList<Integer>(); //Results
-    public static IloCplex AwakeCPLEXResult; //Result
+    public static ArrayList<Integer> AwakeCplexResults = new ArrayList<Integer>(); //Results - not used
+    public static IloCplex AwakeCPLEXResult; //Result - not used
     //--------------------------------
 
     public AwakeCPLEX(){
@@ -31,13 +37,12 @@ public class AwakeCPLEX {
         //Cplex object, derived from IloAlgorithm, capable of solving optimization problems
         IloCplex cplex = new IloCplex();
 
-
+        //Objective function
         objective = cplex.lqNumExpr(); //Linear of ILP LPSOLVE
 
+        //U and Y arrays
         IloNumVar[] U = new IloNumVar[timeSlots];
         IloIntVar[] Y = new IloIntVar[size];
-
-
 
         //Linear Expression - helper
         IloLQNumExpr linear;
@@ -45,24 +50,19 @@ public class AwakeCPLEX {
         /*The objective
          * maximize sigma(i) Ui
          */
-
         U = cplex.numVarArray(timeSlots,0, Double.MAX_VALUE);
         Y = cplex.intVarArray(size,0,Integer.MAX_VALUE);
 
         for(int i=0; i<timeSlots; i++){
             objective.addTerm(1, U[i]);
-
         }
-
         cplex.addMaximize(objective);
-
 
 
         /*
          * Part 1: for each t Ut = sigma(i) YiTit
          * Ut represents the availability per hour
          */
-
         for(int t= 0 ; t<timeSlots;t++){
             linear = cplex.lqNumExpr();
             for(int i= 0; i<size; i++){
@@ -83,7 +83,6 @@ public class AwakeCPLEX {
         linear = cplex.lqNumExpr();
         for(int i= 0;i<size;i++){
             linear.addTerm(1,Y[i]);
-
         }
         cplex.addEq(repDegree, linear);
 

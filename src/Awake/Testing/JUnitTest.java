@@ -1,5 +1,8 @@
 package Awake.Testing;
-
+/**
+ * @author Esat Tunahan Tuna, etuna@ku.edu.tr
+ * KOC UNIVERSITY DISNET
+ */
 import Awake.AwakeCPLEX;
 import Awake.AwakeILP;
 import ILPtoCPLEX.IPLEX;
@@ -16,11 +19,12 @@ import static org.junit.Assert.assertEquals;
 
 public class JUnitTest {
 
-
-    //For random tests: make size 128
-    //Timeslots: 24
-    //rep degree 5
-    //Availability table: a 128 * 24 table filled randomly with doubles between 0 and 1
+    /**
+     *     For random tests: make size 128
+     *     Timeslots: 24
+     *     rep degree 5
+     *     Availability table: a 128 * 24 table filled randomly with doubles between 0 and 1
+     */
 
 
     //Variables---------------------------------------------
@@ -65,7 +69,7 @@ public class JUnitTest {
     }
 
     /**
-     * Awake ILP Test : prints out objective and asserts works properly
+     * Awake ILP Test : prints out objective value and asserts works properly
      */
     @Test
     public void AwakeILPTest(){
@@ -77,16 +81,16 @@ public class JUnitTest {
 
 
     /**
+     *  AwakeCPLEXTest
      *  public static IloCplex AwakeLEX(int size, int timeSlots, int repDegree, double[][] availabilityTable)
+     *  @prints the Objective value
      */
     @Test
     public void AwakeCPLEXTest() throws IloException {
-
         System.out.println("Awake CPLEX objective------------------------------------------------");
         System.out.println(cplex.getObjValue());
         System.out.println("-------------------------------------------------------------------\n\n");
         assertTrue(awakeCPLEX.workedProperly == 1);
-
     }
 
     /**

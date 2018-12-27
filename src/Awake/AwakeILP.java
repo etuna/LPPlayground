@@ -1,20 +1,33 @@
 package Awake;
+/**
+ * KOC UNIVERSITY DISNET
+ */
 
 import net.sf.javailp.*;
 
 public class AwakeILP {
 
+    /**
+     *     For random tests: make size 128
+     *     Timeslots: 24
+     *     rep degree 5
+     *     Availability table: a 128 * 24 table filled randomly with doubles between 0 and 1
+     */
 
-    //For random tests: make size 128
-    //Timeslots: 24
-    //rep degree 5
-    //Availability table: a 128 * 24 table filled randomly with doubles between 0 and 1
 
     //Variables---------------------
-    public static int workedProperly = 0;
+    public static int workedProperly = 0; // For test purposes
     //------------------------------
 
 
+    /**
+     *
+     * @param size
+     * @param timeSlots
+     * @param repDegree
+     * @param availabilityTable
+     * @returns Result
+     */
     public static Result ReplicaOptimizer(int size, int timeSlots, int repDegree, double[][] availabilityTable)
     {
         SolverFactory factory = new SolverFactoryLpSolve(); // use lp_solve
@@ -24,13 +37,11 @@ public class AwakeILP {
         /*A new LP problem*/
         Problem problem = new Problem();
 
+
         /*The objective
-         * minimize sigma(i) Ui
+         * Maximize sigma(i) Ui
          *
-         * MINIMIZE OR MAXIMIZE ???
          */
-
-
         Linear linear = new Linear();
         String objective = new String();
         for (int t = 0; t < timeSlots; t++)
@@ -39,11 +50,6 @@ public class AwakeILP {
             objective = "U" + t;
             linear.add(1, objective);
         }
-
-        //System.out.println(linear.toString());
-        /*
-        Maximize LP objective
-         */
         problem.setObjective(linear, OptType.MAX);
 
 
@@ -58,47 +64,36 @@ public class AwakeILP {
 
             for (int i = 0; i < size; i++)
             {
-                //if (Developments.clustering.getCluster(i))
-                //{
                     String cons1 = new String();
                     cons1 = "Y" + i;
-                    //if(DataTypes.nodesTimeTable.getAvailabilityProbability(i,t) > 0.5)
                     double prob =  availabilityTable[i][t];
                     prob = Math.log(prob * 100);
                     if (prob < -1000 || prob == 0)
                         prob = Math.log(0.01);
                     linear.add(prob, cons1);
-                //}
             }
             problem.add(linear, "=", 0);
-            //System.out.println(linear.toString());
         }
 
 
         /*
-         * Part 2: sigma(i) Yi = MNR
+         * Part 2: sigma(i) Yi = repDegree
          */
         linear = new Linear();
         for (int i = 0; i < size; i++)
         {
-            //if (Developments.clustering.getCluster(i))
-            //{
                 String cons2 = "Y" + i;
                 linear.add(1, cons2);
-            //}
-
         }
         problem.add(linear, "=", repDegree);
+
 
         /*
          * Part 3 = Constraint on Yi
          * Yi >= 0 && Yi <= 1
          */
-        linear = new Linear();
         for (int i = 0; i < size; i++)
         {
-            //if (Developments.clustering.getCluster(i))
-            //{
                 linear = new Linear();
                 String cons3 = "Y" + i;
                 linear.add(-1, cons3);
@@ -108,21 +103,16 @@ public class AwakeILP {
                 String cons4 = "Y" + i;
                 linear.add(1, cons4);
                 problem.add(linear, "<=", 1);
-    //}
 }
 
 
-/*
- * Part 4: Set the type of Yi
- */
+        /*
+        * Part 4: Set the type of Yi
+        */
         for (int i = 0; i < size; i++)
         {
-        //if (Developments.clustering.getCluster(i))
-        //{
         String cons5 = "Y" + i;
         problem.setVarType(cons5, Integer.class);
-        //}
-
         }
 
 
