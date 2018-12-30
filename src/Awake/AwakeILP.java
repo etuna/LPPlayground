@@ -38,7 +38,7 @@ public class AwakeILP {
         Problem problem = new Problem();
 
 
-        /*The objective
+        /**The objective
          * Maximize sigma(i) Ui
          *
          */
@@ -48,19 +48,19 @@ public class AwakeILP {
         {
             objective = new String();
             objective = "U" + t;
-            linear.add(1, objective);
+            linear.add(1, objective); // Linear = sigma(i) Ui
         }
-        problem.setObjective(linear, OptType.MAX);
+        problem.setObjective(linear, OptType.MAX); //objective function added to the problem for maximization
 
 
-        /*
+        /**
          * Part 1: for each t Ut = sigma(i) YiTit
          * Ut represents the availability per hour
          */
         for (int t = 0; t < timeSlots; t++)
         {
             linear = new Linear();
-            linear.add(-1, "U" + t);
+            linear.add(-1, "U" + t); //linear = -Ut
 
             for (int i = 0; i < size; i++)
             {
@@ -70,25 +70,25 @@ public class AwakeILP {
                     prob = Math.log(prob * 100);
                     if (prob < -1000 || prob == 0)
                         prob = Math.log(0.01);
-                    linear.add(prob, cons1);
+                    linear.add(prob, cons1); //linear = sigma(i) YiTit
             }
-            problem.add(linear, "=", 0);
+            problem.add(linear, "=", 0); //Constraint : 0 = sigma(i) YiTit - Ut
         }
 
 
-        /*
+        /**
          * Part 2: sigma(i) Yi = repDegree
          */
         linear = new Linear();
         for (int i = 0; i < size; i++)
         {
                 String cons2 = "Y" + i;
-                linear.add(1, cons2);
+                linear.add(1, cons2); //Linear = sigma(i) Yi
         }
-        problem.add(linear, "=", repDegree);
+        problem.add(linear, "=", repDegree); //Constraint : sigma(i) Yi = repDegree added to the problem
 
 
-        /*
+        /**
          * Part 3 = Constraint on Yi
          * Yi >= 0 && Yi <= 1
          */
@@ -96,23 +96,23 @@ public class AwakeILP {
         {
                 linear = new Linear();
                 String cons3 = "Y" + i;
-                linear.add(-1, cons3);
-                problem.add(linear, "<=", 0);
+                linear.add(-1, cons3); //Linear = -Yi
+                problem.add(linear, "<=", 0); //Constraint added to the problem : -Yi<=0  =  Yi>=0
 
                 linear = new Linear();
                 String cons4 = "Y" + i;
-                linear.add(1, cons4);
-                problem.add(linear, "<=", 1);
+                linear.add(1, cons4); //Linear = Yi
+                problem.add(linear, "<=", 1); //Constraint added to the problem : Yi<=1
 }
 
 
-        /*
+        /**
         * Part 4: Set the type of Yi
         */
         for (int i = 0; i < size; i++)
         {
         String cons5 = "Y" + i;
-        problem.setVarType(cons5, Integer.class);
+        problem.setVarType(cons5, Integer.class); //Setting the type of Yi
         }
 
 
@@ -120,9 +120,9 @@ public class AwakeILP {
          * Solving the problem
          */
         Solver solver = factory.get(); // you should use this solver only once for one problem
-        Result result = solver.solve(problem);
-        System.out.println(result.getObjective().toString());
-        workedProperly = 1;
+        Result result = solver.solve(problem); //Result of the problem
+        System.out.println(result.getObjective().toString()); //prints the result
+        workedProperly = 1; //For test purposes, not important component
         return (result);
         }
 }
