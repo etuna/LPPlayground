@@ -26,6 +26,8 @@ public class AwakeCPLEX {
     static IloLQNumExpr objective; //Objective function
     public static ArrayList<Integer> AwakeCplexResults = new ArrayList<Integer>(); //Results - not used
     public static IloCplex AwakeCPLEXResult; //Result - not used
+    public static IloNumVar[] U;
+    public static IloNumVar[] Y;
     //--------------------------------
 
     public AwakeCPLEX(){
@@ -41,8 +43,8 @@ public class AwakeCPLEX {
         objective = cplex.lqNumExpr(); //Linear of ILP LPSOLVE
 
         //U and Y arrays
-        IloNumVar[] U = new IloNumVar[timeSlots];
-        IloIntVar[] Y = new IloIntVar[size];
+        U = new IloNumVar[timeSlots];
+        Y = new IloIntVar[size];
 
         //Linear Expression - helper
         IloLQNumExpr linear;
@@ -98,6 +100,21 @@ public class AwakeCPLEX {
 
         workedProperly = 1; //For test purposes
         return cplex; //Returns the solver
+    }
+
+
+    public ArrayList<Integer> extractReplica(AwakeCPLEX awalex, IloCplex mcplex ,int size) throws IloException {
+        ArrayList<Integer> is = new ArrayList<Integer>();
+        double y[] = new double[size];
+        y = mcplex.getValues(awalex.Y); // retrieves the Y values
+
+
+        for(int i=0;i<size;i++){
+            if(y[i] == 1){ // if Yi == 1, adds it to the arraylist
+                is.add(i);
+            }
+        }
+        return is;
     }
 
 }

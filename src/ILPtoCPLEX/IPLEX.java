@@ -256,6 +256,24 @@ public class IPLEX {
     }
 
 
+    public ArrayList<Integer> extractReplica(IPLEX iplex, IloCplex result, int size) throws IloException {
+
+        ArrayList<Integer> is = new ArrayList<Integer>();
+        double y[] = new double[size];
+        y = result.getValues(iplex.Y);
+
+        for(int i= 0; i<size; i++){
+            if(y[i] == 1){
+                is.add(i);
+            }
+        }
+
+
+        return is;
+
+    }
+
+
     /**
      *
      * @param xs
