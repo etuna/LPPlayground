@@ -34,6 +34,15 @@ public class AwakeCPLEX {
 
     }
 
+    /**
+     * AwakeLex
+     * @param size
+     * @param timeSlots
+     * @param repDegree
+     * @param availabilityTable
+     * @return
+     * @throws IloException
+     */
     public static IloCplex AwakeLEX(int size, int timeSlots, int repDegree, double[][] availabilityTable) throws IloException {
 
         //Cplex object, derived from IloAlgorithm, capable of solving optimization problems
@@ -102,8 +111,18 @@ public class AwakeCPLEX {
         return cplex; //Returns the solver
     }
 
-
+    /**
+     *
+     * @param awalex
+     * @param mcplex
+     * @param size
+     * @return
+     * @throws IloException
+     */
     public ArrayList<Integer> extractReplica(AwakeCPLEX awalex, IloCplex mcplex ,int size) throws IloException {
+        /**
+         * Yi = 1 , looking for i values here
+         */
         ArrayList<Integer> is = new ArrayList<Integer>();
         double y[] = new double[size];
         y = mcplex.getValues(awalex.Y); // retrieves the Y values

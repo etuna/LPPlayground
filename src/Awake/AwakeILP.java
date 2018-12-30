@@ -19,6 +19,7 @@ public class AwakeILP {
 
     //Variables---------------------
     public static int workedProperly = 0; // For test purposes
+    public static ArrayList<Integer> yequal1is;
     //------------------------------
 
 
@@ -35,6 +36,8 @@ public class AwakeILP {
         SolverFactory factory = new SolverFactoryLpSolve(); // use lp_solve
         factory.setParameter(Solver.VERBOSE, 0);
         factory.setParameter(Solver.TIMEOUT, Integer.MAX_VALUE);
+
+        yequal1is = new ArrayList<Integer>();
 
         /*A new LP problem*/
         Problem problem = new Problem();
@@ -124,13 +127,22 @@ public class AwakeILP {
         Solver solver = factory.get(); // you should use this solver only once for one problem
         Result result = solver.solve(problem); //Result of the problem
         System.out.println(result.getObjective().toString()); //prints the result
+        yequal1is = extractReplica(result.toString(),size); // Yi == 1 i values
         workedProperly = 1; //For test purposes, not important component
         return (result);
         }
 
 
-        public ArrayList<Integer> extractReplica(String result, int size){
-
+    /**
+     *
+     * @param result
+     * @param size
+     * @return
+     */
+    public static ArrayList<Integer> extractReplica(String result, int size){
+        /**
+         * Looking for i values which Yi = 1
+         */
             ArrayList<Integer> is = new ArrayList<Integer>();
 
             for (int i = 0; i < size; i++)
@@ -142,8 +154,6 @@ public class AwakeILP {
                     is.add(i);
                 }
             }
-
             return is;
-
         }
 }

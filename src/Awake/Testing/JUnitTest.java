@@ -3,6 +3,7 @@ package Awake.Testing;
  * @author Esat Tunahan Tuna, etuna@ku.edu.tr
  * KOC UNIVERSITY DISNET
  */
+
 import Awake.AwakeCPLEX;
 import Awake.AwakeILP;
 import ILPtoCPLEX.IPLEX;
@@ -12,6 +13,7 @@ import net.sf.javailp.Result;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import static junit.framework.TestCase.assertTrue;
@@ -63,6 +65,7 @@ public class JUnitTest {
         ILPResult = awakeILP.ReplicaOptimizer(size,timeSlots,repDegree,availabilityTable);
 
         //CPLEX solution
+        awakeCPLEX = new AwakeCPLEX();
         cplex = awakeCPLEX.AwakeLEX(size,timeSlots, repDegree,availabilityTable);
         cplex.solve();
 
@@ -100,5 +103,21 @@ public class JUnitTest {
     @Test
     public void assertCPLEXLPObjectiveEqual() throws IloException {
         assertEquals(ILPResult.getObjective().doubleValue(),cplex.getObjValue(),1);
+    }
+
+
+    /**
+     * It tests the replicas , Yi = 1, i values
+     * @throws IloException
+     */
+    @Test
+    public void replicaTest() throws IloException {
+        ArrayList<Integer> isCPLEX = awakeCPLEX.extractReplica(awakeCPLEX,cplex,size); //gets Yi = 1 , i values
+        System.out.println(isCPLEX.toString());
+
+        ArrayList<Integer> isLPSOLVE = awakeILP.yequal1is; //gets Yi = 1 , i values
+        System.out.println(isLPSOLVE.toString());
+
+        assertEquals(isCPLEX.toString(), isLPSOLVE.toString());
     }
 }

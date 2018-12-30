@@ -256,8 +256,19 @@ public class IPLEX {
     }
 
 
-    public ArrayList<Integer> extractReplica(IPLEX iplex, IloCplex result, int size) throws IloException {
+    /**
+     *
+     * @param iplex
+     * @param result
+     * @param size
+     * @return
+     * @throws IloException
+     */
+    public static ArrayList<Integer> extractReplica(IPLEX iplex, IloCplex result, int size) throws IloException {
 
+        /**
+         * Looking for i values which Yi = 1
+         */
         ArrayList<Integer> is = new ArrayList<Integer>();
         double y[] = new double[size];
         y = result.getValues(iplex.Y);

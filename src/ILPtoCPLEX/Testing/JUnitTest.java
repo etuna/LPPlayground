@@ -10,6 +10,7 @@ import ilog.cplex.IloCplex;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
@@ -19,7 +20,7 @@ public class JUnitTest {
 
 
     //Variables---------------------------------------------
-    static int size = 50;
+    static int size = 128;
     static int MNR = 1;
     static int[][] L = new int[size][size];
     static Random rand = new Random();
@@ -119,6 +120,21 @@ public class JUnitTest {
             }
         }
         ilp.replicaGenerator(ilp.process(L, size, MNR), size);
+    }
+
+    /**
+     * It tests the replicas , Yi = 1, i values
+     * @throws IloException
+     */
+    @Test
+    public void replicaTest() throws IloException {
+        ArrayList<Integer> IPLEXis = iplex.extractReplica(iplex,iplexResult,size); //gets Yi = 1 , i values
+        System.out.println(IPLEXis.toString());
+
+        ArrayList<Integer> ILPis = ilp.ilpResults; //gets Yi = 1 , i values
+        System.out.println(ILPis.toString());
+
+        assertEquals(IPLEXis.toString(), ILPis.toString());
     }
 
 }
