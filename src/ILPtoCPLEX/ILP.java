@@ -1,5 +1,8 @@
 package ILPtoCPLEX;
-
+/**
+ * @author Esat Tunahan Tuna, etuna@ku.edu.tr
+ * KOC UNIVERSITY DISNET
+ */
 
 import net.sf.javailp.*;
 

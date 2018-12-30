@@ -1,9 +1,11 @@
 package helloCPLEX;
 
-
+/**
+ * @author Esat Tunahan Tuna, etuna@ku.edu.tr
+ * KOC UNIVERSITY DISNET
+ */
 import ilog.concert.IloException;
 import ilog.concert.IloLQNumExpr;
-import ilog.concert.IloLinearNumExpr;
 import ilog.concert.IloNumVar;
 import ilog.cplex.IloCplex;
 

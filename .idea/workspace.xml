@@ -3,12 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cac45906-d6e8-40c8-9952-d3893688cf69" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Awake/AwakeCPLEX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Awake/AwakeCPLEX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Awake/AwakeILP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Awake/AwakeILP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Awake/Testing/JUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Awake/Testing/JUnitTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ILPtoCPLEX/ILP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ILPtoCPLEX/ILP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ILPtoCPLEX/IPLEX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ILPtoCPLEX/IPLEX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ILPtoCPLEX/Testing/JUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ILPtoCPLEX/Testing/JUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helloCPLEX/Example1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/helloCPLEX/Example1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helloCPLEX/Example2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/helloCPLEX/Example2.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,13 +91,13 @@
           <entry key="LPSOLVEConfig" value="570" />
           <entry key="dummy" value="4" />
           <entry key="java" value="16249" />
-          <entry key="txt" value="371" />
+          <entry key="txt" value="379" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="16249" />
-          <entry key="PLAIN_TEXT" value="945" />
+          <entry key="PLAIN_TEXT" value="953" />
         </counts>
       </usages-collector>
     </session>
@@ -109,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/helloCPLEX/Example1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+            <state relative-caret-position="75">
+              <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -118,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/helloCPLEX/Example2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1440">
-              <caret line="99" column="89" selection-start-line="99" selection-start-column="88" selection-end-line="99" selection-end-column="89" />
+            <state relative-caret-position="75">
+              <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#151#152#0" expanded="true" />
@@ -135,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/Testing/JUnitTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1335">
-              <caret line="126" column="27" lean-forward="true" selection-start-line="126" selection-start-column="27" selection-end-line="126" selection-end-column="27" />
+            <state relative-caret-position="1890">
+              <caret line="126" column="27" selection-start-line="126" selection-start-column="27" selection-end-line="126" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,11 +151,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Awake/AwakeILP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="149" column="47" lean-forward="true" selection-start-line="149" selection-start-column="47" selection-end-line="149" selection-end-column="47" />
+            <state relative-caret-position="60">
+              <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3994#4003#0" expanded="true" />
@@ -169,10 +167,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Awake/AwakeCPLEX.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="125" column="48" selection-start-line="125" selection-start-column="48" selection-end-line="125" selection-end-column="48" />
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="4" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3705#3714#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -181,8 +180,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Awake/Testing/JUnitTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="112" column="9" lean-forward="true" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+            <state relative-caret-position="1680">
+              <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -198,7 +197,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/IPLEX.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
+            <state relative-caret-position="4020">
               <caret line="268" column="7" selection-start-line="268" selection-start-column="7" selection-end-line="270" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -211,8 +210,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/ILP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+            <state relative-caret-position="60">
+              <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -259,9 +258,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/helloCPLEX/Example2.java" />
         <option value="$PROJECT_DIR$/Yahya/ILP.java" />
-        <option value="$PROJECT_DIR$/src/helloCPLEX/Example1.java" />
         <option value="$PROJECT_DIR$/src/helloCPLEX/LPSOLVEConfig" />
         <option value="$PROJECT_DIR$/src/ILPtoCPLEX/Test.java" />
         <option value="$PROJECT_DIR$/src/ILPtoCPLEX/Main.java" />
@@ -270,8 +267,10 @@
         <option value="$PROJECT_DIR$/src/Awake/Testing/JUnitTest.java" />
         <option value="$PROJECT_DIR$/src/Awake/AwakeCPLEX.java" />
         <option value="$PROJECT_DIR$/src/ILPtoCPLEX/IPLEX.java" />
-        <option value="$PROJECT_DIR$/src/ILPtoCPLEX/ILP.java" />
         <option value="$PROJECT_DIR$/src/Awake/AwakeILP.java" />
+        <option value="$PROJECT_DIR$/src/ILPtoCPLEX/ILP.java" />
+        <option value="$PROJECT_DIR$/src/helloCPLEX/Example1.java" />
+        <option value="$PROJECT_DIR$/src/helloCPLEX/Example2.java" />
       </list>
     </option>
   </component>
@@ -343,6 +342,12 @@
               <item name="LPPlayground" type="b2602c69:ProjectViewProjectNode" />
               <item name="LPPlayground" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="helloCPLEX" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LPPlayground" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LPPlayground" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ILPtoCPLEX" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -387,13 +392,13 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546197341683" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546197665963" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="C:/Program Files/IBM/ILOG/CPLEX_Studio128/cplex/bin/x64_win64" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -558,7 +563,7 @@
       <workItem from="1545818807660" duration="4342000" />
       <workItem from="1545839678611" duration="1947000" />
       <workItem from="1545855271899" duration="14685000" />
-      <workItem from="1546193788725" duration="3550000" />
+      <workItem from="1546193788725" duration="3771000" />
     </task>
     <task id="LOCAL-00001" summary="First LP Solving Example">
       <created>1542375274324</created>
@@ -875,7 +880,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546195776492</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="COMPLETE">
+      <created>1546197357323</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1546197357323</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -911,7 +923,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110423000" />
+    <option name="totallyTimeSpent" value="110644000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -981,7 +993,8 @@
     <MESSAGE value="AwakeILP - AwakeLEX - commenting on LP version of Awake" />
     <MESSAGE value="IPLEX - Replica Extractor" />
     <MESSAGE value="AwakeILP- Replica Extractor" />
-    <option name="LAST_COMMIT_MESSAGE" value="AwakeILP- Replica Extractor" />
+    <MESSAGE value="COMPLETE" />
+    <option name="LAST_COMMIT_MESSAGE" value="COMPLETE" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1008,28 +1021,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/helloCPLEX/Example1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/helloCPLEX/Example2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="99" column="89" selection-start-line="99" selection-start-column="88" selection-end-line="99" selection-end-column="89" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#151#152#0" expanded="true" />
-            <element signature="e#174#175#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Awake.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1065">
@@ -1040,30 +1031,42 @@
     <entry file="file://$PROJECT_DIR$/LPPlayground.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/Testing/JUnitTest.java">
+    <entry file="file://$PROJECT_DIR$/src/Awake/AwakeCPLEX.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="126" column="27" lean-forward="true" selection-start-line="126" selection-start-column="27" selection-end-line="126" selection-end-column="27" />
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="4" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3705#3714#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Awake/AwakeILP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3994#4003#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Awake/Testing/JUnitTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="112" column="9" lean-forward="true" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+        <state relative-caret-position="1680">
+          <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Awake/AwakeCPLEX.java">
+    <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/ILP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="125" column="48" selection-start-line="125" selection-start-column="48" selection-end-line="125" selection-end-column="48" />
+        <state relative-caret-position="60">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1072,7 +1075,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/IPLEX.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
+        <state relative-caret-position="4020">
           <caret line="268" column="7" selection-start-line="268" selection-start-column="7" selection-end-line="270" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1081,23 +1084,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/ILP.java">
+    <entry file="file://$PROJECT_DIR$/src/ILPtoCPLEX/Testing/JUnitTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+        <state relative-caret-position="1890">
+          <caret line="126" column="27" selection-start-line="126" selection-start-column="27" selection-end-line="126" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Awake/AwakeILP.java">
+    <entry file="file://$PROJECT_DIR$/src/helloCPLEX/Example1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="149" column="47" lean-forward="true" selection-start-line="149" selection-start-column="47" selection-end-line="149" selection-end-column="47" />
+        <state relative-caret-position="75">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3994#4003#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helloCPLEX/Example2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#151#152#0" expanded="true" />
+            <element signature="e#174#175#0" expanded="true" />
           </folding>
         </state>
       </provider>
