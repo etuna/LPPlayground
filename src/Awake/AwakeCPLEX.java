@@ -23,7 +23,7 @@ public class AwakeCPLEX {
 
     //Variables-----------------------
     public static int workedProperly = 0; //For test purposes
-    static IloLQNumExpr objective;
+    static IloLQNumExpr objective; //Objective function
     public static ArrayList<Integer> AwakeCplexResults = new ArrayList<Integer>(); //Results - not used
     public static IloCplex AwakeCPLEXResult; //Result - not used
     //--------------------------------
@@ -47,19 +47,19 @@ public class AwakeCPLEX {
         //Linear Expression - helper
         IloLQNumExpr linear;
 
-        /*The objective
+        /**The objective
          * maximize sigma(i) Ui
          */
         U = cplex.numVarArray(timeSlots,0, Double.MAX_VALUE);
         Y = cplex.intVarArray(size,0,Integer.MAX_VALUE);
 
         for(int i=0; i<timeSlots; i++){
-            objective.addTerm(1, U[i]);
+            objective.addTerm(1, U[i]); // objective = sigma(i) Ui
         }
-        cplex.addMaximize(objective);
+        cplex.addMaximize(objective); //objective function added to the solver for maximization
 
 
-        /*
+        /**
          * Part 1: for each t Ut = sigma(i) YiTit
          * Ut represents the availability per hour
          */
@@ -71,33 +71,33 @@ public class AwakeCPLEX {
                 if (prob < -1000 || prob == 0)
                     prob = Math.log(0.01);
 
-                linear.addTerm(Y[i],prob);
+                linear.addTerm(Y[i],prob); // linear = sigma(i)YiTit
             }
-            cplex.addEq(U[t],linear);
+            cplex.addEq(U[t],linear); // Constraint : Ut = linear added to the solver
         }
 
 
-        /*
+        /**
          * Part 2: sigma(i) Yi = MNR
          */
         linear = cplex.lqNumExpr();
         for(int i= 0;i<size;i++){
-            linear.addTerm(1,Y[i]);
+            linear.addTerm(1,Y[i]); // linear = sigma(i) Yi
         }
-        cplex.addEq(repDegree, linear);
+        cplex.addEq(repDegree, linear); //Constraint : sigma(i) Yi = repDegree(=MNR) added to the solver
 
 
-        /*
+        /**
          * Part 3 = Constraint on Yi
          * Yi >= 0 && Yi <= 1
          */
         for(int i=0; i<size;i++){
-            cplex.addGe(Y[i],0);
-            cplex.addLe(Y[i],1);
+            cplex.addGe(Y[i],0); //Constraint : Yi>=0 added to the solver
+            cplex.addLe(Y[i],1); //Constraint : Yi<=1 added to the solver
         }
 
-        workedProperly = 1;
-        return cplex;
+        workedProperly = 1; //For test purposes
+        return cplex; //Returns the solver
     }
 
 }
