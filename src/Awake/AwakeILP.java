@@ -5,6 +5,8 @@ package Awake;
 
 import net.sf.javailp.*;
 
+import java.util.ArrayList;
+
 public class AwakeILP {
 
     /**
@@ -124,5 +126,22 @@ public class AwakeILP {
         System.out.println(result.getObjective().toString()); //prints the result
         workedProperly = 1; //For test purposes, not important component
         return (result);
+        }
+
+
+        public ArrayList<Integer> extractReplica(String result, int size){
+
+            ArrayList<Integer> is = new ArrayList<Integer>();
+
+            for (int i = 0; i < size; i++)
+            {
+                String target = "Y" + i + "=1";
+
+                if (result.contains(target))
+                {
+                    is.add(i);
+                }
+            }
+
         }
 }

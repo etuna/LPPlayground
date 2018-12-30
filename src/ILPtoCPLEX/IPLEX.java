@@ -267,10 +267,7 @@ public class IPLEX {
                 is.add(i);
             }
         }
-
-
         return is;
-
     }
 
 
